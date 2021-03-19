@@ -1,0 +1,28 @@
+
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter string");
+		String string= scan.nextLine();
+		getdigits(string);
+		scan.close();
+	}
+}
+class UserMainCode {
+	static int getdigits(String str) {
+		int result = 0;
+		int res = Integer.parseInt(str.replaceAll("[\\D]", ""));
+		while (res != 0) {
+			result += res % 10;
+			res /= 10;
+		}
+
+		System.out.println(result);
+		return result;
+	}
+}
+
+
+

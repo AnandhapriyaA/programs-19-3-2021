@@ -1,0 +1,31 @@
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter date");
+		String date1 = scan.nextLine();
+		String date2 = scan.nextLine();
+		getDateDifference(date1, date2);
+		scan.close();
+	}
+}
+class UserMainCode {
+	static int getDateDifference(String date1, String date2) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd");
+		Date Date1 = sdf.parse(date1);
+		String result1 = sdf1.format(Date1);
+		Date Date2 = sdf.parse(date2);
+		String result2 = sdf1.format(Date2);
+		int diff = ((Integer.parseInt(result1)) - (Integer.parseInt(result2)));
+		if (diff > 0)
+			System.out.println(diff);
+		else
+			System.out.println(-diff);
+		return diff;
+	}
+}

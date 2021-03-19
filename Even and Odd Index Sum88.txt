@@ -1,0 +1,29 @@
+
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter number");
+		int number=scan.nextInt();
+		getDigitSum(number);
+		scan.close();
+	}
+}
+class UserMainCode {
+	static int getDigitSum(int number) {
+		int count = 1, sumEven = 0, sumOdd = 0;
+		if (count % 2 == 0)
+			sumEven += number % 10;
+		else
+			sumOdd += number % 10;
+		number /= 10;
+		count++;
+		if (sumOdd != sumEven)
+			System.out.println("yes");
+		else
+			System.out.println("no");
+		return count;
+	}
+}
+

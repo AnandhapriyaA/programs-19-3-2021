@@ -1,0 +1,36 @@
+
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter ip address");
+		String ip = scan.nextLine();
+		ipValidator(ip);
+		scan.close();
+	}
+}
+class UserMainCode {
+	static int ipValidator(String ip) {
+		boolean result = false;
+		String[] ans = ip.split("\\.");
+		int first = Integer.parseInt(ans[0]);
+		int second = Integer.parseInt(ans[1]);
+		int third = Integer.parseInt(ans[2]);
+		int fourth = Integer.parseInt(ans[3]);
+		if ((first >= 0 && first <= 255) && (second >= 0 && second <= 255) && (third >= 0 && third <= 255)
+				&& (fourth >= 0 && fourth <= 255))
+			result = true;
+		if (result == true) {
+			System.out.println("valid");
+			return 1;
+		} else {
+			System.out.println("invalid");
+			return 2;
+		}
+	}
+}
+
+
+
+

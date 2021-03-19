@@ -1,0 +1,36 @@
+
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter length");
+		int len = scan.nextInt();
+		System.out.println("enter array");
+		int[] array = new int[len];
+		for (int i = 0; i < len; i++)
+			array[i] = scan.nextInt();
+		System.out.println("enter number");
+		int num = scan.nextInt();
+		addAndReverse(array, num);
+		scan.close();
+	}
+}
+class UserMainCode {
+	static int addAndReverse(int[] array, int num) {
+		int sum = 0, result = 0;
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] > num)
+				sum += array[i];
+		}
+		while (sum != 0) {
+			int digit = sum % 10;
+			result = result * 10 + digit;
+			sum /= 10;
+		}
+		System.out.println(result);
+		return result;
+	}
+}
+
+
